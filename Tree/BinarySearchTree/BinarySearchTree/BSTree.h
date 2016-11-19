@@ -119,10 +119,10 @@ inline void BSTree<T>::remove(BSNode<T>* p, T key)
 				root = child_node;
 
 			//被删节点不是头节点,更改双亲节点指向新子节点
-			else if (del_node->parent->lchild == del_node)
-				del_node->lchild = child_node;
-			else
-				del_node->rchild = child_node;
+			if (del_node->parent->lchild == del_node)
+				del_node->parent->lchild = child_node;
+			else if (del_node->parent->rchild == del_node)
+				del_node->parent->rchild = child_node;
 
 			if (pnode->value != del_node->value)
 				pnode->value = del_node->value;
