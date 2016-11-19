@@ -129,11 +129,11 @@ inline void BSTree<T>::remove(BSNode<T>* p, T key)
 
 			delete del_node;
 		}
+		else if (pnode->value < key)
+			remove(pnode->rchild, key);
+		else
+			remove(pnode->lchild, key);
 	}
-	else if (key > pnode->value)
-		remoee(pnode->rchild, key);
-	else
-		remove(pnode->lchild, key);
 }
 
 template<typename T>
@@ -172,28 +172,41 @@ inline void BSTree<T>::postOrder(BSNode<T>* p)
 template<typename T>
 inline T BSTree<T>::search_minimum(BSNode<T>* p)
 {
-	return T();
+	if (p->lchild != nullptr)
+		return search_minimum(p->lchild);
+	return p->value;
 }
 
 template<typename T>
 inline T BSTree<T>::search_maximum(BSNode<T>* p)
 {
-	return T();
+	if (p->rchild != nullptr)
+		return search_maximum(p->rchild);
+	return p->value;
 }
 
 template<typename T>
 inline void BSTree<T>::destory(BSNode<T>*& p)
 {
+	if (p != nullptr)
+	{
+		if (p->lchild != nullptr)
+			destory(p->lchild);
+		if (p->rchild != nullptr)
+			destory(p->rchild);
+		delete p;
+		p = nullptr;
+	}
 }
 
 template<typename T>
 inline BSTree<T>::BSTree()
-{
-}
+	: root(nullptr) {}
 
 template<typename T>
 inline BSTree<T>::~BSTree()
 {
+	destory(root);
 }
 
 template<typename T>
@@ -244,12 +257,13 @@ inline BSNode<T>* BSTree<T>::search_iterator(T key)
 template <typename T>
 T BSTree<T>::search_minimum()
 {
+	return search_minimum(root);
 }
 
 template<typename T>
 inline T BSTree<T>::search_maximum()
 {
-	return T();
+	return search_maximum(root);
 }
 
 //
@@ -350,9 +364,9 @@ inline void BSTree<T>::remove(T key)
 template<typename T>
 inline void BSTree<T>::destory()
 {
+	destory(root);
 }
 
 template<typename T>
 inline void BSTree<T>::print()
-{
-}
+{}
