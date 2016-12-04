@@ -1,0 +1,3 @@
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/cmake-build-debug/CMakeFiles/BigNum.dir

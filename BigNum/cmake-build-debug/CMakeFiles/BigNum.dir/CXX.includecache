@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/BigNum1.h
+iostream
+-
+string
+-
+iomanip
+-
+algorithm
+-
+cstdio
+-
+cstdlib
+-
+cstring
+-
+
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/main.cpp
+iostream
+-
+BigNum1.h
+/home/huo/GitHub/data-structure-and-algorithm/BigNum/BigNum1.h
+
